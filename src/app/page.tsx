@@ -1,4 +1,4 @@
-import { fetchGraphQL } from '@/lib/graphql-client';
+export const dynamic = 'force-dynamic';\nimport { fetchGraphQL } from '@/lib/graphql-client';
 
 interface PageData {
   page: {
