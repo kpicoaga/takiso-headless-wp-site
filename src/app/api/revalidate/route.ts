@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   try {
     // Revalidate the specific page
     revalidatePath(`/${slug}`);
-    revalidateTag('pages');
+    revalidateTag('pages', 'layout');
     return NextResponse.json({ revalidated: true, slug });
   } catch (err) {
     return NextResponse.json(
