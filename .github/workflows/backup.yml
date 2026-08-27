@@ -1,0 +1,24 @@
+name: Database Backup
+
+on:
+  schedule:
+    - cron: '0 4 * * 0'  # Every Sunday at 4am
+  workflow_dispatch:  # Also can run manually
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into Oracle Cloud and dump DB
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.ORACLE_HOST }}
+          username: ${{ secrets.ORACLE_USER }}
+          key: ${{ secrets.ORACLE_SSH_KEY }}
+          script: |
+            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+            docker exec wordpress_db mysqldump -u ${{ secrets.WP_DB_USER }} -p${{ secrets.WP_DB_PASSWORD }} ${{ secrets.WP_DB_NAME }} > /tmp/backup_$TIMESTAMP.sql
+            gzip /tmp/backup_$TIMESTAMP.sql
+            # Upload to external storage (optional — add your S3/rclone command here)
+            # Keep only last 7 backups
+            ls -t /tmp/backup_*.sql.gz | tail -n +8 | xargs -r rm
