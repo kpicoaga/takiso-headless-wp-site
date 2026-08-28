@@ -4,24 +4,11 @@ export const GET_PAGE = `
     page(id: $slug, idType: URI) {
       title
       slug
-      seo {
-        title
-        metaDesc
-        opengraphTitle
-        opengraphDescription
-        opengraphImage {
-          sourceUrl
-          altText
-        }
-        schema {
-          raw
-        }
-      }
+      content
       featuredImage {
         sourceUrl
         altText
       }
-      acfFields
     }
   }
 `;
@@ -34,3 +21,4 @@ export const GET_ALL_SLUGS = `
     }
   }
 `;
+

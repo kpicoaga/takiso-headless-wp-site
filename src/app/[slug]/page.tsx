@@ -6,16 +6,8 @@ interface PageData {
   page: {
     title: string;
     slug: string;
-    seo: {
-      title: string;
-      metaDesc: string;
-      opengraphTitle: string;
-      opengraphDescription: string;
-      opengraphImage: { sourceUrl: string; altText: string } | null;
-      schema: { raw: string };
-    };
+    content: string;
     featuredImage: { sourceUrl: string; altText: string } | null;
-    acfFields: Record<string, unknown>;
   };
 }
 
@@ -28,21 +20,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const { page } = data;
 
-  // page.acfFields contains all your ACF fields as a plain object
-  // Build your UI from here
-
   return (
-    <>
-      {page.seo?.schema?.raw && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: page.seo.schema.raw }}
-        />
+    <main>
+      {page.featuredImage && (
+        <img src={page.featuredImage.sourceUrl} alt={page.featuredImage.altText || ''} />
       )}
-      <main>
-        <h1>{page.title}</h1>
-        <pre>{JSON.stringify(page.acfFields, null, 2)}</pre>
-      </main>
-    </>
+      <h1>{page.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: page.content }} />
+    </main>
   );
 }
+
