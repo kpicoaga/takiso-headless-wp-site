@@ -46,6 +46,12 @@ export default function Navigation() {
               Home
             </Link>
             <Link
+              href="/blog"
+              className={`font-medium transition-colors ${isActive("/blog") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
+            >
+              Blog
+            </Link>
+            <Link
               href="/pricing"
               className={`font-medium transition-colors ${isActive("/pricing") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
             >
@@ -89,6 +95,13 @@ export default function Navigation() {
                   className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
                 >
                   Home
+                </Link>
+                <Link
+                  href="/blog"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
+                >
+                  Blog
                 </Link>
                 <Link
                   href="/pricing"
