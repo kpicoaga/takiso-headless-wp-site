@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Takiso - Sitio moderno con WordPress headless",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="es"

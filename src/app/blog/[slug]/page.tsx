@@ -97,8 +97,9 @@ function getReadingTime(content: string): string {
   return `${minutes} min de lectura`;
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const data = await fetchGraphQL<PostData>(GET_POST, { slug: params.slug });
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const data = await fetchGraphQL<PostData>(GET_POST, { slug });
 
   if (!data?.post) {
     notFound();
