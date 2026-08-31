@@ -6,8 +6,10 @@ export const GET_PAGE = `
       slug
       content
       featuredImage {
-        sourceUrl
-        altText
+        node {
+          sourceUrl
+          altText
+        }
       }
     }
   }
