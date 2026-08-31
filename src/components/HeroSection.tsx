@@ -27,13 +27,7 @@ export default function HeroSection({
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-        {imagenUrl && (
-          <img
-            src={imagenUrl}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
-          />
-        )}
+
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

@@ -32,9 +32,13 @@ export default function Navigation() {
             <Link
               href="/"
               onClick={closeMobileMenu}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold"
             >
-              Takiso
+              <img
+                src="/images/logo.webp"
+                alt="Takiso Studio Logo"
+                className="h-8 object-contain"
+              />
             </Link>
           </div>
 
@@ -46,10 +50,10 @@ export default function Navigation() {
               Home
             </Link>
             <Link
-              href="/blog"
-              className={`font-medium transition-colors ${isActive("/blog") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
+              href="/about"
+              className={`font-medium transition-colors ${isActive("/about") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
             >
-              Blog
+              About Us
             </Link>
             <Link
               href="/pricing"
@@ -63,8 +67,14 @@ export default function Navigation() {
             >
               Portfolio
             </Link>
+            <Link
+              href="/blog"
+              className={`font-medium transition-colors ${isActive("/blog") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
+            >
+              Blog
+            </Link>
             <Link href="/contact">
-              <Button className="px-6 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">
+              <Button className="px-6 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
                 Get in Touch
               </Button>
             </Link>
@@ -97,11 +107,11 @@ export default function Navigation() {
                   Home
                 </Link>
                 <Link
-                  href="/blog"
+                  href="/about"
                   onClick={closeMobileMenu}
                   className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
                 >
-                  Blog
+                  About Us
                 </Link>
                 <Link
                   href="/pricing"
@@ -116,6 +126,13 @@ export default function Navigation() {
                   className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
                 >
                   Portfolio
+                </Link>
+                <Link
+                  href="/blog"
+                  onClick={closeMobileMenu}
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
+                >
+                  Blog
                 </Link>
                 <Link
                   href="/contact"
